@@ -147,7 +147,8 @@ const Cart = () => {
               Choose Delivery Address
             </h1>
             <div className="flex gap-5 flex-wrap justify-center">
-            {addresses?.map((address) => (
+           {Array.isArray(addresses) && addresses.length > 0 ? (    
+        addresses?.map((address) => (
   <Card
     key={address.id}
     className="relative w-64 p-4"
