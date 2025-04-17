@@ -5,7 +5,7 @@ import { api, API_URL } from "../../config/api"
 export const registerUser=(reqData) => async(dispatch) => {
     dispatch({type:REGISTER_REQUEST})
     try {
-         const {data} = await axios.post(`${API_URL}/auth/signup`,reqData.userData)
+         const {data} = await axios.post(`https://foodbackend-production-ecf0.up.railway.app/auth/signup`,reqData.userData)
         // const {data} = await axios.post(`https://foodbackend-production-ecf0.up.railway.app/auth/signup`, reqData.userData);
 
         if(data.jwt) localStorage.setItem("jwt",data.jwt)
