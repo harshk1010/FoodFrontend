@@ -1,9 +1,9 @@
 import axios from "axios"
 
-export const API_URL = "https://foodbackend-production-ecf0.up.railway.app";
+
 
 export const api=axios.create({
-    baseURL:API_URL,
+    baseURL:process.env.REACT_APP_BASE_URL,
     headers:{
         "Content-Type":"application/json",
     }
