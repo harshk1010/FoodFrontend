@@ -43,10 +43,11 @@ const Address = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-6 text-center text-white">My Saved Addresses</h1>
 
-      {addresses.length === 0 ? (
+      { Array.isArray(addresses) && addresses.length === 0 ? (
         <p className="text-center text-gray-400">You have no saved addresses.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          { Array.isArray(addresses) && addresses.length > 0 ? (
           {addresses.map((address) => (
             <Card
               key={address.id}
@@ -86,6 +87,7 @@ const Address = () => {
           
               </CardContent>
             </Card>
+            )
           ))}
         </div>
       )}
