@@ -55,26 +55,26 @@ export const getUserAddresses = () => async (dispatch) => {
   }
 };
 
-export const deleteAddress = (addressId) => async (dispatch) => {
-  dispatch({ type: DELETE_ADDRESS_REQUEST });
-  try {
-    const jwt = localStorage.getItem("jwt");
-    const config = {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-    };
-    await axios.delete(`/api/address/${addressId}`, config);
+// export const deleteAddress = (addressId) => async (dispatch) => {
+//   dispatch({ type: DELETE_ADDRESS_REQUEST });
+//   try {
+//     const jwt = localStorage.getItem("jwt");
+//     const config = {
+//       headers: {
+//         Authorization: `Bearer ${jwt}`,
+//       },
+//     };
+//     await axios.delete(`/api/address/${addressId}`, config);
 
-    dispatch({
-      type: DELETE_ADDRESS_SUCCESS,
-      payload: addressId,
-    });
-  } catch (error) {
-    dispatch({
-      type: DELETE_ADDRESS_FAILURE,
-      payload: error.response?.data?.message || "Failed to delete address",
-    });
-  }
+//     dispatch({
+//       type: DELETE_ADDRESS_SUCCESS,
+//       payload: addressId,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: DELETE_ADDRESS_FAILURE,
+//       payload: error.response?.data?.message || "Failed to delete address",
+//     });
+//   }
 };
 
