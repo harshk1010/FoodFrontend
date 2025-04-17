@@ -178,8 +178,7 @@ const Cart = () => {
       showButton={true}
     />
   </Card>
-))
-      )}
+)))}
 
 
               {/* Add New Address Card */}
