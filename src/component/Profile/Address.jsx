@@ -1,19 +1,17 @@
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAddress, getUserAddresses } from '../State/Address/Action';
+import { getUserAddresses } from '../State/Address/Action';
 
 import {
   Card,
   Box,
   Typography,
   Divider,
-  IconButton,
   CardContent,
 } from '@mui/material';
 
 import HomeIcon from '@mui/icons-material/Home';
-import DeleteIcon from '@mui/icons-material/Delete';
+// import DeleteIcon from '@mui/icons-material/Delete';
 
 const Address = () => {
   const dispatch = useDispatch();
@@ -29,12 +27,6 @@ const Address = () => {
       dispatch(getUserAddresses(jwt, userId));
     }
   }, [dispatch, jwt, userId]);
-s
-
-    // const handleDeleteAddress = (id) => {
-    //   dispatch(deleteAddress(id));
-    // };
-
 
   if (authLoading || addressLoading) return <p className="text-center">Loading addresses...</p>;
   if (authError || addressError) return <p className="text-red-500 text-center">Error: {authError || addressError}</p>;
@@ -43,11 +35,10 @@ s
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-6 text-center text-white">My Saved Addresses</h1>
 
-      { Array.isArray(addresses) && addresses.length === 0 ? (
+      {Array.isArray(addresses) && addresses.length === 0 ? (
         <p className="text-center text-gray-400">You have no saved addresses.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          { Array.isArray(addresses) && addresses.length > 0 ? (
           {addresses.map((address) => (
             <Card
               key={address.id}
@@ -62,6 +53,7 @@ s
                       Home
                     </Typography>
                   </Box>
+                  {/* Delete button placeholder */}
                   {/* <IconButton
                     size="small"
                     onClick={() => handleDeleteAddress(address.id)}
@@ -73,9 +65,8 @@ s
 
                 <Divider className="bg-gray-700 mb-4" />
 
-             
-                  {/* Address Info */}
-                  <Typography variant="body2" className="text-gray-300 mb-1 pt-2">
+                {/* Address Info */}
+                <Typography variant="body2" className="text-gray-300 mb-1 pt-2">
                   {address.streetAddress}
                 </Typography>
                 <Typography variant="body2" className="text-gray-300 mb-1">
@@ -84,10 +75,8 @@ s
                 <Typography variant="body2" className="text-gray-300">
                   {address.postalCode}, {address.country}
                 </Typography>
-          
               </CardContent>
             </Card>
-            )
           ))}
         </div>
       )}
@@ -96,6 +85,3 @@ s
 };
 
 export default Address;
-
-
-
