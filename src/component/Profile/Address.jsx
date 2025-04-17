@@ -39,7 +39,8 @@ const Address = () => {
         <p className="text-center text-gray-400">You have no saved addresses.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {addresses.map((address) => (
+          {Array.isArray(addresses) && addresses.length > 0 (
+            addresses.map((address) => (
             <Card
               key={address.id}
               className="bg-gray-900 text-white rounded-2xl shadow-md border border-gray-700"
@@ -77,7 +78,7 @@ const Address = () => {
                 </Typography>
               </CardContent>
             </Card>
-          ))}
+          )))}
         </div>
       )}
     </div>
