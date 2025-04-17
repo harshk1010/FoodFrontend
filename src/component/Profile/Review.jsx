@@ -55,7 +55,7 @@ const Review = () => {
       <Box width="70%">
         <CardContent>
           <Grid container spacing={3}>
-            {review.reviews?.length > 0 ? (
+            {Array.isArray(review.reviews) &&review.reviews?.length > 0 ? (
               review.reviews.map((item, index) => (
                 <Grid item xs={12} key={index}>
                   <Card sx={{ display: 'flex', minHeight: 200 }}>
