@@ -17,7 +17,7 @@ const Address = () => {
   const dispatch = useDispatch();
 
   const { user, isLoading: authLoading, error: authError } = useSelector((state) => state.auth || {});
-  const { addresses = [], isLoading: addressLoading, error: addressError } = useSelector((state) => state.address || {});
+  const { addresses = [], isLoading: addressLoading, error: addressError } = useSelector((state) => state.address);
 
   const jwt = localStorage.getItem("jwt");
   const userId = user?.id;
