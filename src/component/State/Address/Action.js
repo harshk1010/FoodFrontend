@@ -20,7 +20,7 @@ export const saveAddress = (address) => async (dispatch) => {
         Authorization: `Bearer ${jwt}`,
       },
     };
-    const res = await axios.post("/api/address/add", address, config);
+    const res = await axios.post("https://foodbackend-production-ecf0.up.railway.app/api/address/add", address, config);
     dispatch({
       type: SAVE_ADDRESS_SUCCESS,
       payload: res.data,
